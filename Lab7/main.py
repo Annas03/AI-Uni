@@ -9,7 +9,9 @@ def Fitness(x,y,z):
     else:
         return abs(1/fitness)
     
-# Generate Solutions/Population/Generation 0
+# print(toProve(4.102369359683696,81.98869123782188,4998.583946463735))
+    
+# Generate Solutions/Population/Generation 
 solutions = []
 for _ in range(10000):
     solutions.append((random.uniform(0, 10000), random.uniform(0, 10000), random.uniform(0, 10000)))
@@ -28,6 +30,9 @@ for i in range(1000):
 
     print(bestSolutions[0])
 
+    if bestSolutions[0][0] > 999:
+        break
+
     # Mixing bestSolutions
     bestElementX = []
     bestElementY = []
@@ -40,6 +45,6 @@ for i in range(1000):
     # Creating a Optimized Generation
     newGen = []
     for _ in range(10000):
-        newGen.append((random.choice(bestElementX),random.choice(bestElementY),random.choice(bestElementZ)))
+        newGen.append((random.choice(bestElementX) * random.uniform(0.99, 1.01),random.choice(bestElementY)* random.uniform(0.99, 1.01),random.choice(bestElementZ)* random.uniform(0.99, 1.01)))
     
     solutions = newGen
